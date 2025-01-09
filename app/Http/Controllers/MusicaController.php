@@ -9,11 +9,10 @@ class MusicaController extends Controller
 {
     public function index()
     {
-        $musicas = Musica::orderBy('visualizacoes', 'desc')->take(5)->get();
-    
+        $musicas = Musica::orderBy('visualizacoes', 'desc')->limit(5)->get();
         return response()->json([
             'status' => 'success',
-            'data' => $musicas
+            'data' => $musicas,
         ]);
     }
     
